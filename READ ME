@@ -1,0 +1,22 @@
+
+# Build notes
+
+To build for raspibery make sure you all the toolchain stuff.
+
+ADD RPall library.. add rpall to dependencies in toml
+https://github.com/golemparts/rppal
+
+ADD ssh to new pi (will need PI IP address, user name.... )
+put priviate key on new pis .ssh folder here
+
+now you can add ur public key to the ~/.ssh/authorized_keys files so you don't have to type password each time
+
+This is how you build for your target: 
+cargo build --target armv7-unknown-linux-gnueabihf 
+
+
+To send binary to the target:
+scp <filepath> pi:<file destination>
+scp target/armv7-unknown-linux-gnueabihf/debug/pi_rust_p1 pi2:~
+
+
